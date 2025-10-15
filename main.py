@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import logging
+import webserver
 
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
@@ -167,4 +168,5 @@ async def show_enemies(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
+webserver.keepalive()
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
